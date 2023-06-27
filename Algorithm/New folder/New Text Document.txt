@@ -1,0 +1,250 @@
+"Good morning/afternoon/evening, everyone! My name is [Your Name], and I am delighted to be here today to share with you the progress I have made on my floor plan and minar design using AutoCAD.
+
+
+To begin with, let's dive into the world of architectural design and the significance of AutoCAD.
+
+Moving on to the main focus of my presentation, I have been working diligently on both the floor plan and minar design using AutoCAD. Firstly, let's talk about the progress I have made on the floor plan design (Which i used the reference left side of my design which take a rectanlge 127.5 by 127.5 then design octagon using polygon cammand which is the for conerner of the reference Through careful consideration of the project requirements and
+
+
+Now, shifting our attention to the minar design, I have drawn inspiration from [provide your inspiration/source] to create a visually appealing and intricate structure. By utilizing AutoCAD's 3D modeling capabilities such as using (Revolved tool which is vary relevieant tool of the desing of minar as well as design same shape which is indicate the reference picture. Moreover, I have taken into account the feedback and suggestions I received along the way to enhance the overall design.
+
+Throughout this process, I have faced a few challenges. However, with determination and problem-solving skills, I was able to overcome them. These challenges have further enriched my learning experience and allowed me to grow both technically and creatively.
+
+
+In conclusion, I have made significant progress on my floor plan and minar design using AutoCAD. The combination of AutoCAD's powerful tools and my creative vision has allowed me to create accurate and visually appealing designs. I am excited to share my work with you and receive any feedback or suggestions you may have.
+
+
+
+How to use latex part 2
+
+
+
+CHENGIZ Blockbuster Day 6 ADVANCE BOOKING VS Kisi Ka Bhai Kisi Ki Jaan || Jeet || Susmita || Neeraj Pandey || Rajesh Ganguly
+#chengiz #chengizteaser #chengiztrailer
+ package chatting.application;
+
+import javax.swing.*;
+import javax.swing.border.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import java.text.*;
+import java.net.*;
+import java.io.*;
+
+public class Server implements ActionListener {
+
+    JTextField text;
+    JPanel a1;
+    static Box vertical = Box.createVerticalBox();
+    static JFrame f = new JFrame();
+    static DataOutputStream dout;
+
+    HuffmanEncoder encoder;
+
+    Server() {
+        f.setLayout(null);
+
+        JPanel p1 = new JPanel();
+        p1.setBackground(new Color(7, 94, 84));
+        p1.setBounds(0, 0, 450, 70);
+        p1.setLayout(null);
+        f.add(p1);
+
+        // Rest of the code...
+
+        a1 = new JPanel();
+        a1.setBounds(5, 75, 440, 570);
+        f.add(a1);
+
+        text = new JTextField();
+        text.setBounds(5, 655, 310, 40);
+        text.setFont(new Font("SAN_SERIF", Font.PLAIN, 16));
+        f.add(text);
+
+        JButton send = new JButton("Send");
+        send.setBounds(320, 655, 123, 40);
+        send.setBackground(new Color(7, 94, 84));
+        send.setForeground(Color.WHITE);
+        send.addActionListener(this);
+        send.setFont(new Font("SAN_SERIF", Font.PLAIN, 16));
+        f.add(send);
+
+        f.setSize(450, 700);
+        f.setLocation(200, 50);
+        f.setUndecorated(true);
+        f.getContentPane().setBackground(Color.WHITE);
+
+        f.setVisible(true);
+
+        // Initialize Huffman encoder
+        encoder = new HuffmanEncoder();
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+        try {
+            String out = text.getText();
+
+            // Compress the message
+            String compressedMessage = encoder.compress(out);
+
+            JPanel p2 = formatLabel(compressedMessage);
+
+            // Rest of the code...
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static JPanel formatLabel(String out) {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+        // Rest of the code...
+    }
+
+    public static void main(String[] args) {
+        new Server();
+
+        try {
+            ServerSocket skt = new ServerSocket(6001);
+            while (true) {
+                Socket s = skt.accept();
+                DataInputStream din = new DataInputStream(s.getInputStream());
+                dout = new DataOutputStream(s.getOutputStream());
+
+                while (true) {
+                    // Rest of the code...
+                    String msg = din.readUTF();
+
+                    // Decompress the message
+                    String decompressedMessage = encoder.decompress(msg);
+
+                    JPanel panel = formatLabel(decompressedMessage);
+
+                    // Rest of the code...
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+class HuffmanEncoder {
+    private HashMap<Character, String> encodingMap;
+    private HashMap<String, Character> decodingMap;
+
+    HuffmanEncoder() {
+        encodingMap = new HashMap<>();
+        decodingMap = new HashMap<>();
+    }
+
+    String compress(String message) {
+        // Build Huffman tree and encoding map
+        buildEncodingMap(message);
+
+        // Compress the message
+        StringBuilder compressedMessage = new StringBuilder();
+        for (char c : message.toCharArray()) {
+            compressedMessage.append(encodingMap.get(c));
+        }
+        return compressedMessage.toString();
+    }
+
+    String decompress(String compressedMessage) {
+        // Build decoding map using encoding map
+        buildDecodingMap();
+
+        // Decompress the message
+        StringBuilder decompressedMessage = new StringBuilder();
+        StringBuilder currentCode = new StringBuilder();
+        for (char c : compressedMessage.toCharArray()) {
+            currentCode.append(c);
+            if (decodingMap.containsKey(currentCode.toString())) {
+                decompressedMessage.append(decodingMap.get(currentCode.toString()));
+                currentCode.setLength(0); // Clear currentCode
+            }
+        }
+        return decompressedMessage.toString();
+    }
+
+    private void buildEncodingMap(String message) {
+        // Calculate frequency of each character in the message
+        HashMap<Character, Integer> frequencyMap = new HashMap<>();
+        for (char c : message.toCharArray()) {
+            frequencyMap.put(c, frequencyMap.getOrDefault(c, 0) + 1);
+        }
+
+        // Build Huffman tree
+        PriorityQueue<HuffmanNode> pq = new PriorityQueue<>();
+        for (char c : frequencyMap.keySet()) {
+            pq.offer(new HuffmanNode(c, frequencyMap.get(c)));
+        }
+
+        while (pq.size() > 1) {
+            HuffmanNode leftChild = pq.poll();
+            HuffmanNode rightChild = pq.poll();
+            HuffmanNode parent = new HuffmanNode('\0', leftChild.frequency + rightChild.frequency);
+            parent.left = leftChild;
+            parent.right = rightChild;
+            pq.offer(parent);
+        }
+
+        // Generate encoding map using the Huffman tree
+        generateEncodingMap(pq.poll(), new StringBuilder());
+    }
+
+    private void generateEncodingMap(HuffmanNode node, StringBuilder code) {
+        if (node == null) {
+            return;
+        }
+
+        if (node.left == null && node.right == null) {
+            encodingMap.put(node.character, code.toString());
+            decodingMap.put(code.toString(), node.character);
+            return;
+        }
+
+        code.append('0');
+        generateEncodingMap(node.left, code);
+        code.setLength(code.length() - 1);
+
+        code.append('1');
+        generateEncodingMap(node.right, code);
+        code.setLength(code.length() - 1);
+    }
+
+    private void buildDecodingMap() {
+        // Generate decoding map from encoding map
+        for (Character c : encodingMap.keySet()) {
+            decodingMap.put(encodingMap.get(c), c);
+        }
+    }
+
+    private static class HuffmanNode implements Comparable<HuffmanNode> {
+        char character;
+        int frequency;
+        HuffmanNode left, right;
+
+        HuffmanNode(char character, int frequency) {
+            this.character = character;
+            this.frequency = frequency;
+        }
+
+        public int compareTo(HuffmanNode other) {
+            return this.frequency - other.frequency;
+        }
+    }
+}
+
+
+music credit:
+https://www.youtube.com/watch?v=9W5xRxY6cbo
+Like You — Declan DP | Free Background Music | Audio Library Release
+https://www.youtube.com/watch?v=eM4k2HNgnDo&ab_channel=AudioLibraryPlus%E2%80%94OfficialReleases
+https://www.youtube.com/watch?v=9W5xRxY6cbo&ab_channel=AudioLibraryPlus%E2%80%94OfficialReleases
+https://www.youtube.com/watch?v=bXBdx1TztGU&ab_channel=AudioLibraryPlus%E2%80%94OfficialReleases
+
+Download Here Copywrite free music
+https://www.youtube.com/@audiolibraryplus

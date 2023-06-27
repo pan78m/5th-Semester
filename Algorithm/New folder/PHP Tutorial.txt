@@ -1,0 +1,10 @@
+PHP Tutorial Source Website
+
+1=====>>>
+https://www.tutorialspoint.com/php/index.htm
+2=====>>>
+https://www.javatpoint.com/install-php
+// my-sql-link
+https://www.javatpoint.com/php-mysql-connect
+3=====>>
+https://www.w3schools.com/php/

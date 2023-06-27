@@ -1,0 +1,56 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "UserTwo",
+            "request": "launch",
+            "mainClass": "group.chatting.application.UserTwo",
+            "projectName": "chatting-application-master_bbd74cd4"
+        },
+        {
+            "type": "java",
+            "name": "UserOne",
+            "request": "launch",
+            "mainClass": "group.chatting.application.UserOne",
+            "projectName": "chatting-application-master_bbd74cd4"
+        },
+        {
+            "type": "java",
+            "name": "Server",
+            "request": "launch",
+            "mainClass": "group.chatting.application.Server",
+            "projectName": "chatting-application-master_bbd74cd4"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "ChatServerClient",
+            "request": "launch",
+            "mainClass": "chatting.application.ChatServerClient",
+            "projectName": "chatting-application-master_bbd74cd4"
+        },
+        {
+            "type": "java",
+            "name": "Client",
+            "request": "launch",
+            "mainClass": "chatting.application.Client",
+            "projectName": "chatting-application-master_bbd74cd4"
+        },
+        {
+            "type": "java",
+            "name": "Server",
+            "request": "launch",
+            "mainClass": "chatting.application.Server",
+            "projectName": "chatting-application-master_bbd74cd4"
+        }
+    ]
+}

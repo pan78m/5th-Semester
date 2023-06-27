@@ -1,0 +1,70 @@
+music credit:
+https://www.youtube.com/watch?v=ObAcg1k25YI
+Home — Another Kid | Free Background Music | Audio Library Release
+
+Download Here Copywrite free music
+https://www.youtube.com/@audiolibraryplus
+
+
+
+// RSAEncryption.java
+public class RSAEncryption {
+    // RSA encryption and decryption logic
+    
+    // Generate RSA keys
+    public void generateKeys() {
+        // Implementation of key generation
+    }
+
+    // Encrypt a message using RSA
+    public String encrypt(String message, BigInteger publicKey) {
+        // Implementation of encryption
+    }
+
+    // Decrypt a message using RSA
+    public String decrypt(String encryptedMessage, BigInteger privateKey) {
+        // Implementation of decryption
+    }
+}
+
+// Sender.java
+public class Sender {
+    public static void main(String[] args) {
+        // Initialize the RSAEncryption class and generate keys
+        RSAEncryption rsaEncryption = new RSAEncryption();
+        rsaEncryption.generateKeys();
+        
+        // Get the public key of the receiver (through key exchange or other secure means)
+        BigInteger receiverPublicKey = getReceiverPublicKey();
+        
+        // Get the message from the user
+        String message = "Hello, Receiver!";
+        
+        // Encrypt the message using RSA
+        String encryptedMessage = rsaEncryption.encrypt(message, receiverPublicKey);
+        
+        // Send the encrypted message to the receiver
+        sendToReceiver(encryptedMessage);
+    }
+}
+
+// Receiver.java
+public class Receiver {
+    public static void main(String[] args) {
+        // Initialize the RSAEncryption class and generate keys
+        RSAEncryption rsaEncryption = new RSAEncryption();
+        rsaEncryption.generateKeys();
+        
+        // Get the private key of the receiver (keep it secure)
+        BigInteger receiverPrivateKey = getReceiverPrivateKey();
+        
+        // Receive the encrypted message from the sender
+        String encryptedMessage = receiveFromSender();
+        
+        // Decrypt the message using RSA
+        String decryptedMessage = rsaEncryption.decrypt(encryptedMessage, receiverPrivateKey);
+        
+        // Display the decrypted message
+        System.out.println("Received message: " + decryptedMessage);
+    }
+}
