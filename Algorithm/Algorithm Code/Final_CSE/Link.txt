@@ -1,0 +1,20 @@
+Prime's:
+https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/
+
+LLLLCS:
+https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/
+
+
+Practice:
+https://practice.geeksforgeeks.org/explore?page=1&category[]=Algorithms&category[]=Pattern%20Searching&category[]=Shortest%20Path&category[]=LCS&curated[]=1&sortBy=latest&curated_names[]=SDE%20Sheet
+
+
+mini:
+https://practice.geeksforgeeks.org/problems/minimum-platforms-1587115620/1
+
+
+PRo DP:
+https://www.geeksforgeeks.org/dynamic-programming/
+
+Practice search:
+https://practice.geeksforgeeks.org/explore?page=1&sortBy=submissions
